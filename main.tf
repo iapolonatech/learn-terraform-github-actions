@@ -16,7 +16,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-west-2"
+  region = "us-east-1"
 }
 
 resource "random_pet" "sg" {}
@@ -54,7 +54,6 @@ resource "aws_instance" "web" {
 
 resource "aws_security_group" "web-sg" {
   name = "${random_pet.sg.id}-sg"
-  vpc_id = "vpc-06d7578edbf5b41a7"
   ingress {
     from_port   = 8080
     to_port     = 8080
